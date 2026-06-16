@@ -1,6 +1,6 @@
 # Network Traffic Generator
 
-Modern PyQt6 GUI for iperf3 with real-time monitoring and SSH-based remote server control.
+Modern PyQt6 GUI wrapper for **iperf3** with real-time monitoring, graphing and remote server management over SSH.
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
 ![PyQt6](https://img.shields.io/badge/PyQt6-GUI-green)
@@ -9,70 +9,68 @@ Modern PyQt6 GUI for iperf3 with real-time monitoring and SSH-based remote serve
 
 ## Features
 
-- TCP throughput testing
-- UDP performance testing
-- Bidirectional mode
-- TCP congestion analysis
-- Multi-stream stress testing
-- Real-time graphs
-- SSH remote server startup
-- Live bandwidth, jitter and packet loss monitoring
-
-## Screenshot
-
-![Application](docs/screenshots/main.png)
-
----
-
-## Requirements
-
-### Client
-
-- Python 3.10+
-- PyQt6
-- pyqtgraph
-- paramiko
-
-### Server
-
-- iperf3
+* TCP throughput testing
+* UDP performance testing
+* Bidirectional traffic tests
+* TCP congestion analysis
+* Multi-stream load testing
+* Real-time bandwidth graphs
+* SSH remote iperf3 startup
+* Packet loss and jitter monitoring
 
 ---
 
 ## Installation
 
+### Clone repository
+
 ```bash
-git clone https://github.com/<your_username>/network-traffic-generator.git
-cd network-traffic-generator
-
-python3 -m venv venv
-source venv/bin/activate
-
-pip install -r requirements.txt
+git clone https://github.com/loki0731/NetworkTrafficGenerator.git
+cd NetworkTrafficGenerator
 ```
 
-## Run
+### Install Python dependencies
 
 ```bash
-python3 main.py
+sudo apt update
+sudo apt install -y iperf3
+pip3 install PyQt6 pyqtgraph paramiko
+```
+
+### Ubuntu/Debian additional dependencies
+
+```bash
+sudo apt update
+
+sudo apt install -y python3-pip iperf3 libxcb-cursor0 libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-render-util0 libxcb-xinerama0
 ```
 
 ---
 
-## Server Setup
+## Running
 
-Ubuntu / Debian:
+```bash
+python3 ntg.py
+```
+
+---
+
+## Remote Server Setup
+
+Install iperf3 on the remote host:
 
 ```bash
 sudo apt update
-sudo apt install iperf3
+sudo apt install -y iperf3
 ```
 
-Start server:
+Start server manually:
 
 ```bash
 iperf3 -s
 ```
+
+Or use the built-in SSH server startup feature.
 
 ---
 
@@ -80,7 +78,7 @@ iperf3 -s
 
 1. Enter server IP address
 2. Select test mode
-3. Configure duration and streams
+3. Configure test parameters
 4. Click **Start**
 5. Monitor results in real time
 
@@ -88,29 +86,29 @@ iperf3 -s
 
 ## Test Modes
 
-| Mode | Description |
-|--------|-------------|
-| TCP | Bandwidth measurement |
-| UDP | Jitter and packet loss analysis |
-| Bidirectional | Simultaneous send/receive |
-| Congestion | TCP behavior under load |
-| Multi-Stream | Parallel connection stress test |
+| Mode          | Description                        |
+| ------------- | ---------------------------------- |
+| TCP           | Throughput measurement             |
+| UDP           | Jitter and packet loss analysis    |
+| Bidirectional | Full-duplex testing                |
+| Congestion    | TCP congestion monitoring          |
+| Multi-Stream  | Parallel connection stress testing |
 
 ---
 
-## Tech Stack
+## Requirements
 
-- Python
-- PyQt6
-- pyqtgraph
-- Paramiko
-- iperf3
+* Python 3.10+
+* PyQt6
+* pyqtgraph
+* paramiko
+* iperf3
 
 ---
 
 ## License
 
-MIT
+MIT License
 
 ---
 
@@ -118,4 +116,4 @@ MIT
 
 **Vladislav Guznov**
 
-Network Performance Testing Tool built on top of iperf3.
+Network Performance Testing Tool based on iperf3.
