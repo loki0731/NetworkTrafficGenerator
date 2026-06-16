@@ -5,7 +5,6 @@ Modern PyQt6 GUI wrapper for **iperf3** with real-time monitoring, graphing and 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
 ![PyQt6](https://img.shields.io/badge/PyQt6-GUI-green)
 ![iperf3](https://img.shields.io/badge/iperf3-supported-orange)
-![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
 ## Features
 
@@ -104,16 +103,3 @@ Or use the built-in SSH server startup feature.
 * paramiko
 * iperf3
 
----
-
-## License
-
-MIT License
-
----
-
-## Author
-
-**Vladislav Guznov**
-
-Network Performance Testing Tool based on iperf3.
